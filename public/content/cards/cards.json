@@ -1,0 +1,149 @@
+{ "cardsArray":
+    [  
+        {
+            "id": 1,
+            "image": "content/images/mechanics.svg",
+            "title": "Механика",
+            "text":  "Механическое движение тел и взаимодействия между ними. Основные разделы механики – кинематика и динамика.",
+            "themes": [
+                {
+                    "title": "Кинематика",
+                    "subtitles": [
+                        {
+                            "subtitle": "Баллистика",
+                            "url": "/content/theory/ballistic.txt",
+                            "image": "/content/images/second.png",
+                            "sound": "/content/sounds/first.mp3"
+                        },
+                        {
+                            "subtitle": "Движение по вертикали",
+                            "url": "/content/theory/vertical.txt",
+                            "image": "/content/images/first.png",
+                            "sound": "/content/sounds/second.mp3"
+                        },
+                        {
+                            "subtitle": "Бросок тела вертикально вверх",
+                            "url": "/content/theory/brosok.txt",
+                            "image": "/content/images/8.png",
+                            "sound": "/content/sounds/third.mp3"
+                        },
+                        {
+                            "subtitle": "Свободное падение тела",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        },
+                        {
+                            "subtitle": "Горизонтальный бросок",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        },
+                        {
+                            "subtitle": "Бросок под углом к горизонту",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        },
+                        {
+                            "subtitle": "Падение тела на наклонную плоскость",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        }
+                    ],
+                    "check_yourself": "/content/check/check_kinematic.json"
+                },
+                {
+                    "title": "Динамика",
+                    "subtitles": [
+                        {
+                            "subtitle": "Законы Ньютона",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        },
+                        {
+                            "subtitle": "Силы в механике. Сила упругости",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        },
+                        {
+                            "subtitle": "Гравитационная сила",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        },
+                        {
+                            "subtitle": "Вес тела. Невесомость",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        },
+                        {
+                            "subtitle": "Силы трения",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        },
+                        {
+                            "subtitle": "Примеры решения задач",
+                            "url": "",
+                            "image": "",
+                            "sound": ""
+                        }
+                    ],
+                    "check_yourself": ""
+                },
+                {
+                    "title": "Статика",
+                    "subtitles": [],
+                    "check_yourself": ""
+                },
+                {
+                    "title": "Законы сохранения динамики",
+                    "subtitles": [],
+                    "check_yourself": ""
+                },
+                {
+                    "title": "Механические колебания и волны",
+                    "subtitles": [],
+                    "check_yourself": ""
+                }
+            ]
+        },
+        
+        {
+            "id": 2,
+            "image": "content/images/heat.svg",
+            "title": "Молекулярная физика и термодинамика",
+            "text":  "Физические свойства тел на основе их молекулярного строения. Термодинамика - свойства макроскопических систем и способы передачи и превращения энергии.",
+            "themes": []
+        },
+
+        {
+            "id": 3,
+            "image": "content/images/electricity.svg",
+            "title": "Электродинамика",
+            "text":  "Электромагнитное поле в наиболее общем случае и его взаимодействие с телами, имеющими электрический заряд.",
+            "themes": []
+        },
+
+        {
+            "id": 4,
+            "image": "content/images/brotherhood.svg",
+            "title": "Основы СТО",
+            "text":  "Движение, законы механики и пространственно-временные отношения при произвольных скоростях движения, меньших скорости света в вакууме.",
+            "themes": []
+        },
+
+        {
+            "id": 5,
+            "image": "content/images/quantum.svg",
+            "title": "Квантовая физика",
+            "text":  "Квантово-механические и квантово-полевые системы и законы их движения.",
+            "themes": []
+        }
+    ]
+}
