@@ -5,16 +5,17 @@ const Check = (data) => {
 
     let resultArrayForAlert = [];
     let resultStringForAlert;
-    let title = data.location.state.title;
-    let subtitle = data.location.state.item.title;
+    let title = data.location.state.testName;
+    let subtitle = data.location.state.themeName;
     let previousURL = data.location.state.url;
+    let sectionName = data.location.state.sectionName;
 
     const [test, setTest] = useState([]);
     const [checkVariants, setCheckVariants] = useState([]);
 
     useEffect(() => {
-        fetch(data.location.state.item.check_yourself).then(response => response.json()).then(text => setTest(text))
-    }, []);
+        setTest(data.location.state.questions)
+    }, [data.location.state]);
 
     let checkResults = () => {
         let sampleArray = test.check_questions.map((item) => {
@@ -43,13 +44,13 @@ const Check = (data) => {
     return (
         <div>
             <Breadcrumb>
-            <Breadcrumb.Item href={previousURL}>{title}</Breadcrumb.Item>
+            <Breadcrumb.Item href={previousURL}>{sectionName}</Breadcrumb.Item>
             <Breadcrumb.Item href={previousURL}>{subtitle}</Breadcrumb.Item>
             <Breadcrumb.Item href="#">Проверь себя</Breadcrumb.Item>
             </Breadcrumb>
             <Card className="m-2">
                 <Card.Body>
-                    <Card.Title>Тесты для проверки материала</Card.Title>
+                    <Card.Title>{title}</Card.Title>
                     {test.check_questions?
                         test.check_questions.map((item, key) => {
                             return(

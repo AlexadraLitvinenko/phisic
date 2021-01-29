@@ -1,17 +1,43 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {Image, Card} from 'react-bootstrap';
+import { useQuery, gql } from '@apollo/client';
 
 const Main = () => {
-    //Стейт для контента главной страницы
-    const [cards, setCards] = useState([]);
-
     //Запрос к json файлу конфигурации контента
-    useEffect(() => {
-        fetch("/content/cards/cards.json")
-            .then(response => response.json())
-            .then(result => setCards(result.cardsArray))
-    }, []);
+    const getCards = gql`
+    query getCards {
+        cards {
+          url
+          cardImage {
+            url
+          }
+          cardName
+          cardDescription
+          theme {
+            themeName
+            test {
+              testName
+              tests
+            }
+            lectures {
+              title
+              lectureImage
+              {
+                url
+              }
+              lectureText
+              lectureSound
+              {
+                url
+              }
+            }
+          }
+        }
+      }
+    `;
+  
+    const cardsArray = (useQuery(getCards));
     
         return (
         <div>
@@ -24,29 +50,38 @@ const Main = () => {
             <section>
                 <div className="d-flex flex-row flex-wrap justify-content-center align-items-stretch p-4" style={{ minHeight: "100%"}}>
                     {
+                        cardsArray.data?
                         //Рендер массива карточек из стейта
-                        cards.map((item, key) => {
+                        cardsArray.data.cards.map((item, key) => {
                             return (
                                 <div key={key} className="col-md-4 mb-4">
                                         <Card className="card shadow-sm text-center" style={{height: "100%"}}>
                                             <Card.Header>
-                                            <Image className="pb-2" style={{maxHeight: "64pt"}} src={item.image} />
+                                            <Image className="pb-2" style={{maxHeight: "64pt"}} src={item.cardImage.url} />
                                                 <Card.Subtitle>
-                                                    {item.title}
+                                                    {item.cardName}
                                                 </Card.Subtitle>
                                             </Card.Header>
                                             <Card.Body>
                                                 <Card.Text>
-                                                    {item.text}
+                                                    {item.cardDescription}
                                                 </Card.Text>
                                             </Card.Body>
-                                            <Link to={"/" + item.id}>
+                                            <Link to={{
+                                                    pathname: "/" + item.url,
+                                                    state: {
+                                                        cardName: item.cardName,
+                                                        cardURL: item.url,
+                                                        themes: item.theme
+                                                    }
+                                            }}>
                                             <Card.Footer className="text-muted">Подробнее</Card.Footer>
                                             </Link>
                                         </Card>
                                 </div>
                         )
                     }) 
+                    : <img src="../loading.gif" stwidth="64" height="64" frameBorder="0" allowFullScreen alt="loading"/>
                     }   
                 </div>  
             </section>
